@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 목록모양 만들기 */
+
+ul{
+list-style-type:hiragana<!-- katakana -->
+}
+
+ol{
+
+list-style-image:url(images/success.png)
+}
+/*배경 색 설정*/
+h3{background-color:orange;
+border-width:3px;
+border-style:solid;
+border-top-color:gray;
+border-left-color:gray;
+border-right-color:darkgray;
+border-bottom-color:darkgray;
+}
+
+h3:active{
+border-width:3px;
+border-style:solid;
+border-top-color:darkgray;
+border-left-color:darkgray;
+border-right-color:gray;
+border-bottom-color:gray;
+margin:0.5px}
+/*배경 이미지 만들기*/
+/*body{
+background:url(images/rose.png) left top repeat-y,
+url(images/rose.png) right top repeat-y,
+url(images/rose.png) right top repeat-x;
+}*/
+/*body{
+background:url(images/cactus.png)
+}*/
+/*그라데이션 배경만들기: http://www.colorzilla.com/gradient-editor/ 에서 설정해서 복사 해오면 된다. 단 꼭 Vendor Prefix 설정 되어 있는 것으 붙여넣기!*/
+body{
+background: url(images/study.jpg)}
+li{color:white}
+
+#radius{
+width:100px;
+height:100px;
+background-color:black;
+border-radius:50px 0px 50px 50px;
+}
+
+div{
+	float:20px;
+	margin:50px;
+	background-color:black;
+	color:white;
+	font-size:30px;
+	font-align:center;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+
+<div>가</div><div>나</div><br><br>
+<h3>Programming Language</h3>
+<ul>
+<a href="#"><li id="radius">Java</li></a>
+<li>자료구조</li>
+<li>알고리즘</li>
+<li>데이터베이터</li>
+<li>Front End</li>
+<li>Java Web Programming</li>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+
+
+<h3>많이 사용하는 프로그래밍 언어</h3>
+<ol>
+<li>JavaScript</li>
+<li>C&amp;C++</li>
+<li>Java</li>
+<li>Python</li>
+<li>데이터베이</li>
+<li>R</li>
+<li>Swift</li>
+<li>Kotlin</li>
+<li>SQL</li>
+<li>Scala</li>
+</ol>
+</body>
+</html>

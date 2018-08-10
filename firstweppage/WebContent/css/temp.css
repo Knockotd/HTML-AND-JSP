@@ -1,0 +1,11 @@
+h3{font-size:100px;
+text-shadow: 3px 3px #fae266, 6px 6px #6ac5f5;
+}
+
+
+h2{color:orange}
+
+.article + #atio{color:skyblue}
+
+h2:hover{color:#ff5e00;}
+h2:active{color:#6600ff;}
