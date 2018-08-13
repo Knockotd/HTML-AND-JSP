@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css를 이용한 3D 애니메이션</title>
+
+<style>
+@-webkit-keyframes spin{
+	from{-webkit-transform:rotateY(0deg);}
+	to{-webkit-transform:rotateY(360deg);}
+}
+#spinner{
+
+-webkit-animation-name:spin;
+-webkit-animation-timing-function:linear;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-duration:6s;
+-webkit-transtorm-style:preserve-3d
+
+
+}
+#spinner:hover{
+-webkit-animation-play-state:paused;
+}
+
+#stage{
+
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+<a href="index.html">홈으로</a>
+<div id="stage" style="background:rgba(0,0,0,0.5)">
+<p id="spinner"
+	style="background:rgba(0,0,0,0.5);
+	text-align:center;
+	color:#fff; ">
+	3D 애니메이션
+
+
+
+</p>
+
+
+</div>
+</body>
+</html>

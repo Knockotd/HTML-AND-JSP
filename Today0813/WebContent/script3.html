@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연산자</title>
+
+<script>
+var i=0
+var result = 10>5 && i++ > 0
+//true라서 뒤를 간다. 하지만 후에 ++이 되는 거라서 false
+alert(result)
+alert(i)
+i=0
+var result = 10<5 && i++ > 0
+//앞이 false라서 뒤에까지 안 감. 따라서 i는 0이다.
+alert(result)
+alert(i)
+//&&는 앞쪽이 false일 확률이 높은 것이 와야 많이 걸러져서 유리하다.
+//||는 앞쪽이 true일 확률이 높은 것이 와야 많이 걸러져서 유리하다.
+
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

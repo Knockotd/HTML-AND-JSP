@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>today0813</title>
+<style>
+	p{
+	width:200px;
+	background:#fdd;
+	border: 2px solid #123456;
+	outline: 2px solid #ffaa00;
+	outline-offset:3px;
+	resize:both;
+	overflow:auto;
+	text-align:center;
+	}
+	div{
+	align:center;
+	background-color:papayawhip;
+	width:300px;
+	height:300px;
+	-webkit-transform:rotate(30deg);
+	-moz-transform:rotate(30deg);
+	-ms-transform:rotate(30deg);
+	}
+	#ani{
+	/*주위에 아무것도 배치되지 않도록 블록 요소로 변경*/
+	display:block;
+	width:300px;
+	height:30px;
+	background:deepskyblue;
+	
+	-webkit-transition:all 3.0s;
+	}
+	#ani:hover{
+	width:450px;
+	background-color:deeppink;
+	opacity:0.0;
+	
+	}
+</style>
+</head>
+<body>
+<a href="index.html">홈으로</a>
+<h2>CSS - resize 와 outline</h2>
+마우스를 끌어서 사이즈를 바꿔보세요. (신기방기)
+	<p class="content" id="pid">
+	오늘은 월요일..내일은 수요일...내일 모래는 광복절!!
+	역사적인 날이지만 쉬는 날이기도 하다 ㅎㅎ
+	태극기 주섬주섬
+	</p>
+	<h2>transtorm 연습</h2>
+<div>**transform
+	▪	원본을 기본 값들을 변경하지 않고 출력을 할 때 3*3 행렬 과의 연산을 해서 출력하는 것
+	▪	translate(이동), scale(크기), rotate(회전) 이 있습니다.
+	▪	origin은 이동이나 크기 및 회전을 적용할 기준점입니다.
+		대부분의 GUI 프로그램에서는 왼쪽 상단을 기준으로 하고 그래픽 카드를 직접 제어하는 OpenGL 에서는 정중앙을 기준으로 합니다.
+	▪	적용방법
+	⁃	접두어-transform:함수명(매개변수)
+	⁃	회전 ( 함수명(매개변수)):	 rotate(숫자deg))</div>
+		<a href="#" id="ani">애니메이션 메뉴</a>
+</body>
+</html>
