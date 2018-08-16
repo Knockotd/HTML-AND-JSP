@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+
+//사파리에서 접속하면 구글 홈페이지로 보내기
+var ar = ['chrome']
+var flag = false
+alert(navigator.userAgent.toLowerCase())
+for(idx in ar){
+	if(navigator.userAgent.toLowerCase().indexOf(ar[idx]) == -1){
+		//indexOf() : 괄호 안에 있는 값을 찾아서 위치를 반환
+		//위치가 -1 이면 없다는 뜻.
+		flag = true
+		break; 
+	}
+}
+
+if(flag == true){
+	
+	window.location = "https://www.google.com/"
+}
+</script>
+</html>

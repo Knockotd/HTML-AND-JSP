@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<a href="index.html">home</a>
+<br/>
+
+<img src="images/6.jpg" id="image" />
+</body>
+<script>
+alert(navigator.userAgent)
+//1초마다 수행되는 타이머
+var img = document.getElementById("image")
+var idx = 5
+var t = setInterval(function(){
+	img.src = "images/"+idx+".jpg"
+	idx = idx -1
+}, 1000)
+//타이머는 따로 실행 명령을 내리지 않아도 코드를 쓰면 자동으로 실행이 된다.
+//submit처럼 기본적으로 바로 실행되는 코드가 몇가지 있다.
+
+
+//9초 후에 한번만 동작하는 타이머
+setTimeout(function(){
+	clearInterval(t)
+	window.location = "timer1.html"
+}, 6000)
+
+</script>
+</html>

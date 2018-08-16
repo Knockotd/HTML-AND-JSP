@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+
+	var mammamia = ["아만다 사이프리드","릴리 제임스","메릴 스트립","피어스 브로스넌","콜린퍼스","스텔란 스카스가드"]
+	
+	var first = mammamia.slice(0,3)
+	alert(first)
+	
+	var second = mammamia.slice(3,5)
+	alert(second)
+	
+	//filter는 매개변수가 1개이고 Boolean을 리턴하는 함수를
+	//매개변수로 받아서 true를 리턴하는 내용만 가지고
+	//새로운 배열을 만들어서 리턴합니다.
+	
+	//7글자 이상인 것 필터
+	var result = mammamia.filter(function(element){
+		return element.length >= 7
+	})
+	alert(result)
+	
+	//드, 스로 끝나는 데이터만 추출
+	
+	var end = mammamia.filter(function(element){
+		return element.charAt(element.length-1) == '드'
+	})
+	alert(end)
+	
+	var end2 = mammamia.filter(function(element){
+		return element.charAt(element.length-1) == '스'
+	})
+	alert(end2)
+	
+	//map은 리턴되는 데이터를 가지고 배열을 새로 생성 (데이터를 가공)
+	
+	result = mammamia.map(function(element){
+		return element.length
+	})
+	
+	alert(result)
+	
+	var mammamia2 = [null,"Amanda Seyfried","Lily James","Meryl Streep","Pierce Brosnan","Colin Firth","Stellan Skarsgard"]
+	
+	result = mammamia2.map(function(element){
+		if(element == null) element = "noname"
+		return element.toUpperCase()
+	})
+	
+	alert(result)
+	
+	
+</script>
+</html>

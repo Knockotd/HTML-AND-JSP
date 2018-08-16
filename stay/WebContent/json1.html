@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+var json = '["HTML","CSS","JavaScript"]'
+var result = JSON.parse(json)
+for(imsi in result){
+	//imsi = index가 대입
+	document.writeln(imsi+":"+result[imsi])
+}
+
+json = '{"lenguage":"Java","database":"Oracle"}'
+	result = JSON.parse(json)
+	for(imsi in result){
+		//imsi = 속성 대입
+		document.writeln(imsi + ":" + result[imsi])
+	}
+	
+window.open('https://naver.com/', '네이버','width=400, height=300, resizable=no')
+
+</script>
+</html>
