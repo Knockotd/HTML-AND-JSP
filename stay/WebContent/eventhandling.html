@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<div id="msg"></div>
+<input type="button" value="버튼" id="btn" />
+
+<!-- form 안에 있는 submit 버튼이나 form을 submit 하는 함수를 호출했을 때
+register라는 함수를 호출하고
+그 함수의 결과가 false이면 form의 내용을 전송하지 않고
+그 이외의 경우는 form의 내용을 전송합니다. -->
+<form action="server.jsp" id="form" onsubmit="return register()">
+<!-- key라는 함수의 결과가 false를 리턴하면 기본 기능을 수행하지 않습니다.
+keydown은 누른 키 값을 input에 출력하는 기본기능을 가지고 있는데 이 기능을 수행하지 않습니다. -->
+이메일<input type="text" id="email" 
+onkeydown="return key()"/>
+<span id="emailmsg"></span>
+<br />
+
+
+비밀번호<input type="password" id="pw1" />
+<span id="pwmsg"></span>
+<br />
+비밀번호 확인<input type="password" id="pw2" />
+<br />
+
+
+<input type="submit" value="회원가입" />
+<input type="button" value="home" />
+<img src="images/login.png" id="login" />
+ </form>
+ 
+ <div id="outer">외부<div id="inner">내부</div></div>
+ 
+
+</body>
+<script>
+
+function register(e){
+	
+	var event = e || window.event
+	
+	var pw1 = document.getElementById("pw1")
+	var pw2 = document.getElementById("pw2")
+	var pwmsg = document.getElementById("pwmsg")
+	
+	if(pw1.value != pw2.value){
+		pwmsg.innerHTML = "비밀 번호가 다릅니다."
+		pwmsg.style.color = "red"
+		return false
+	}
+}
+
+
+document.getElementById("outer").addEventListener("click", function(e){
+	var event = e || window.event
+	alert("외부에서 클릭")
+})
+document.getElementById("inner").addEventListener("click", function(e){
+	var event = e || window.event
+	alert("내부에서 클릭")
+	//이벤트 전파를 막기 - 이벤트 버블링 막기
+	event.stopPropagation()
+})
+
+
+//body 태그 내의 DOM 객체 찾아오기
+var msg = document.getElementById("msg")
+var btn = document.getElementById("btn")
+var img = document.getElementById("login")
+var form = document.getElementById("form")
+
+
+img.addEventListener("click", function(e){
+	var event = e || window.event
+	form.submit()
+})
+
+var email = document.getElementById("email")
+var emailmsg = document.getElementById("emailmsg")
+
+/*
+//email에서 키보드를 눌렀을 때 이벤트 처리
+email.addEventListener("keydown", function(e){
+	var event = e || window.event
+//누른 키보드 값 찾아오기
+//IE하위 버전 브라우저와 다른 브라우저가 방법이 다릅니다.
+
+var v = event.whick ? 
+		event.which : event.keyCode
+		alert(v)
+})
+*/
+function key(e){
+	var event = e || window.event
+//누른 키보드 값 찾아오기
+//IE하위 버전 브라우저와 다른 브라우저가 방법이 다릅니다.
+
+var v = event.whick ? 
+		event.which : event.keyCode
+
+//backspace 나 방향키도 입력되게 해줘야 수정이 가능하다.		
+		if( v == 8 || v >= 65 && v <= 90 ||  v >= 37 && v <= 40 || v == "@"){
+			return true
+		}else{
+			return false
+		}
+	
+}
+
+
+//포커스가 떠날 때 이벤트 처리
+email.addEventListener("blur", function(e){
+	var event = e || window.event
+	//이벤트가 일어 날 때 특정한 동작을 event에 저장.
+	 if(email.value.length < 6){
+		emailmsg.innerHTML="사용 불가능한 아이디 입니다. 6자 이상으로 다시 작성해주세요."
+		emailmsg.style.color = "red"
+	}else if(email.value.indexOf("@") == -1){
+		emailmsg.innerHTML="사용 불가능한 아이디 입니다. 이메일 주소로 입력해주세요."
+			emailmsg.style.color = "red"
+	}else{
+		emailmsg.innerHTML="사용 가능한 아이디입니다."
+			emailmsg.style.color = "blue"
+	}
+})
+
+btn.addEventListener("click", function(e){
+	var event = e || window.event
+	msg.innerHTML = "버튼을 누르셨습니다."
+	msg.style.color = "blue"
+})
+</script>
+</html>
