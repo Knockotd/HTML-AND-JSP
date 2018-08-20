@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<classname>
+		<name>삼다수</name>
+		<color>투명</color>
+	</classname>
+		<classname>
+		<name>백산수</name>
+		<color>투명</color>
+	</classname>
+		<classname>
+		<name>아이리스</name>
+		<color>투명</color>
+	</classname>
+		<classname>
+		<name>토렌타</name>
+		<color>불투명</color>
+	</classname>
+		<classname>
+		<name>비타민워터</name>
+		<color>오색</color>
+	</classname>
+		<classname>
+		<name>파워에이드</name>
+		<color>파랑</color>
+	</classname>
+
+
+</root>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>비디오 재생</title>
+</head>
+<body>
+	<a href="http://localhost:8080/stay2/"/>홈</a><br/>
+	<video src="media/IPhone3G.mov" controls="controls" id="videoo"></video><br/>
+
+	<input type="button" value="재생" id="play" />
+	<input type="button" value="중지" id="stop" />
+	<span id="frame"></span>
+	
+	<!-- 배경음악처럼 무한 반복하는 음원 재생 -->
+	<audio src="media/today.mp3" controls="controls" autoplay="autoplay" loop="loop"></audio>
+
+</body>
+<script >
+	//videoo 라는 id를 가진 객체를 찾아와서 videoo에 대입
+	var videoo = document.getElementById("videoo")
+	var playbtn = document.getElementById("play")
+	var stopbtn = document.getElementById("stop")
+	var framebtn = document.getElementById("frame")
+	
+	//play 버튼을 눌렀을 때 처리
+	playbtn.addEventListener("click", function(e){
+		var event = e || window.event;
+		videoo.play();
+	})
+
+	//stop 버튼을 눌렀을 때 처리
+	stopbtn.addEventListener("click", function(e){
+		var event = e || window.event;
+		videoo.pause();
+	})
+	//videoo에 timeupdate 이벤트가 발생했을 때
+	//frame에 전체 재생 시간과 현재 재생 시간을 출력
+	//현재 재생시간은 currentTime 속성이고
+	//전체 재생 시간은 duration 속성이 가지고 있습니다.
+	
+	videoo.addEventListener("timeupdate", function(e){
+		var event = e || window.event;
+		frame.innerHTML = Math.round(videoo.currentTime) + "/"+Math.round(videoo.duration)
+	})
+
+</script>
+</html>

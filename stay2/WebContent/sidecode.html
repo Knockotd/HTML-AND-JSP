@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 시멘틱 태그를 써야할 경우에는 : 아래 태그를 긁어다가 넣기 : 하위 버전에서 자바스크립트를 통해 구현되게 해주는 코드 -->
+
+<!--[if IE]>
+ document.createElement(“command”);
+<![endif]-- >
+
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+
+<!--[if lt IE 8]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE8.js"></script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+<![endif]-->
+
+<video src="media/IPhone3G.mov" controls="controls" id="videoo"></video><br/>
+
+<video id="video" width="320" height="320" controls="controls">
+			<source src = "resource/IPhone3G.mov"> </source>
+			<source src = "resource/Painting.mp4"> </source>
+			이 브라우저는 VIDEO 태그를 지원하지 않습니다.
+		</video>
+
+
+
+</body>
+</html>
