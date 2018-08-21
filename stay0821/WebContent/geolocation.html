@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HTML5 위치정보 사용</title>
+</head>
+<body>
+<!--id map을 가지고 있기 때문에 아래의 스크립트보다 위에만 있으면 된다. -->
+<div id="map" style="width:500px;height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48cbb31115d26237b4d0d14cf941ea4a"></script>
+
+
+</body>
+
+
+<script>
+var container = document.getElementById('map');
+
+navigator.geolocation.getCurrentPosition(function(location){
+	var options = {
+			center: new daum.maps.LatLng(location.coords.latitude, location.coords.longitude),
+			level: 3
+		};
+	var map = new daum.maps.Map(container, options);
+
+	// 마커가 표시될 위치입니다 
+	var markerPosition  = new daum.maps.LatLng(location.coords.latitude, location.coords.longitude); 
+
+	// 마커를 생성합니다
+	var marker = new daum.maps.Marker({
+	    position: markerPosition
+	});
+
+	// 마커가 지도 위에 표시되도록 설정합니다
+	marker.setMap(map);
+
+	
+},function(error){
+	alert(error.code)
+})
+</script>
+</html>
