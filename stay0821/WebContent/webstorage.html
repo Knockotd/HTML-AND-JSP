@@ -5,8 +5,9 @@
 <title>웹 스토리지 사용</title>
 </head>
 <body>
+<!-- required="required" -->
 <form action="login.jsp" id="loginform">
-	아이디:<input type="text" id="id" required="required"/><br/>
+	아이디:<input type="text" id="id" /><br/>
 	<input type="checkbox" value="check" id="idsave" />아이디 저장<br/>
 	<input type="submit" value="로그인" />
 </form>
@@ -17,6 +18,7 @@ var ids = document.getElementById("id")
 //윈도우가 로드를 끝냈을 때
 window.addEventListener("load",function(e){
 	var event = e || window.event
+	alert(typeof localStorage.id)
 	if(typeof localStorage.id != 'undefined'){
 		ids.value = localStorage.id
 		idsave.checked = true;

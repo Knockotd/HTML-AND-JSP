@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web SQL 실습</title>
+</head>
+<body>
+	<fieldset>
+		<legend>데이터 입력 영역</legend>
+			이름:<input type="text" size="20" id="name" /> <br/>
+			직업:<input type="text" size="20" id="job" /> <br/>
+			출연작품:<input type="text" size="40" id="work" /><br/>
+		<input type="button" value="삽입" id="addbtn" />
+	</fieldset>
+	<fieldset>
+		<legend>데이터 출력 영역</legend>
+		<select id="list" size="10"></select><br/>
+		<input type="button" value="삭제" id="deletebtn" />
+	</fieldset>
+</body>
+<script>
+//자바스크립트에서 사용할 태그 찾아오기
+var name1 = document.getElementById("name")
+var job = document.getElementById("job")
+var work = document.getElementById("work")
+var addbtn = document.getElementById("addbtn")
+var list = document.getElementById("list")
+var deletebtn = document.getElementById("deletebtn")
+
+//데이터베이스 변수 생성 - 여러번 쓰기 위
+var db
+
+//데이터베이스를 초기화해주는 메소드
+function init(){
+	//데이터베이스 생성
+	db = window.openDatabase("Frofile","1","FrofileDB","1024*1024")
+	//SQL을 실행하기 위한 트랜잭션 생성
+	db.transaction(function(tx){
+		//테이블을 생성해주는 sql 실행
+		tx.executeSql("create table if not exists"
+							+ " frofile(num integer primary key autoincrement, name, job, work)")
+		}
+	)
+	//데이터를 읽어오는 함수를 호출
+	showData()
+}
+
+//데이터를 읽어오는 함수
+function showData(){
+	db.transaction(function(tx){
+		
+		tx.executeSql(
+		"select * from frofile", [], function(tx, rs){
+
+			//list를 초기화 - 태그 안의 내용 삭제
+			list.innerHTML = ""
+			//select 구문의 결과 가져오기
+			var rows = rs.rows;
+			//반복문을 돌려서 읽은 데이터를 list에 출력
+			for(var i=0; i<rows.length; i=i+1){
+				//하나의 행 가져오기
+				var row = rows.item(i)
+				//select 안에 삽입할 Option 만들기
+				//앞의 매개변수는 화면에 출력될 내용이고 //두번째 매개변수는 value 값입니다.
+				var option = new Option(row.num +"\t/\t" +row.name + "\t/\t" +row.job + "\t/\t"+row.work, row.num)
+				//select에 추가
+				list.options[list.options.length] = option
+			}
+		})
+	})
+}
+
+
+//페이지의 내용을 읽어서 메모리에 로드하자 마자 출력
+window.addEventListener("load", function(e){
+	var event = e || window.event
+	//초기화 메소드 호출
+	init()
+})
+
+//삽입버튼을 눌렀을 때 수행할 내용
+addbtn.addEventListener("click", function(e){
+	var event = e || window.event
+	//입력된 값 읽어오기
+	var namevaluee = name1.value
+	var jobvaluee = job.value
+	var workvaluee = work.value
+	
+	//삽입하는 sql 실행하기
+	db.transaction(function(tx){
+		var x = [namevaluee, jobvaluee, workvaluee]
+		tx.executeSql("insert into Frofile(name, job, work) values(?,?,?)", x, 
+				function(tx, rs){
+			alert("저장 성공")
+			//데이터를 다시 출력
+			showData()
+		})
+	})
+	
+})
+
+//삭제 버튼을 눌렀을 때 처리	
+deletebtn.addEventListener("click",function(e){
+	//list에서 선택한 행번호 가져오기
+	//어디서든지 = selectedIndex
+	var idx = list.selectedIndex
+	//선택한 항목이 없을 때
+	if(idx < 0){
+		alert("선택 후 클릭해주세요.")
+	}
+	//선택한 항목의 value(num 값) 가져오기
+	var num = list.options[idx].value
+	//데이터베이스에서 삭제하기
+	db.transaction(function(tx){
+		tx.executeSql("delete from frofile where num=?",[num],function(tx, rs){
+			//데이터를 다시 출력
+			showData()
+			alert("삭제 성공")
+		})
+	})
+})
+	
+	
+</script>
+</html>
