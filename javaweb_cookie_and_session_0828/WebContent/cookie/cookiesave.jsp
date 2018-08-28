@@ -28,4 +28,4 @@ response.addCookie(cookie1);
 <body>
 <a href="cookie/cookieread.jsp">쿠키 읽기</a>
 </body>
-</html>
+</html> 

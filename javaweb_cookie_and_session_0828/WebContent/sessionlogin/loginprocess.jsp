@@ -34,6 +34,6 @@ if(id.equals("system") && pw.equals("1234")){
 	response.sendRedirect("login.jsp");
 }
 
-%>
+%> 
 </body>
 </html>

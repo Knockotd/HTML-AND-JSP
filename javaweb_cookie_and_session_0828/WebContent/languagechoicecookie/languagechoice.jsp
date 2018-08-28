@@ -26,7 +26,7 @@ if(lang.equals("eng")){
 	out.println("<h3>한국어</h3>");
 }
 
-%>
+%> 
 <!-- form의 데이터를 languagesave.jsp로 전송 -->
 	<form action="languagesave.jsp">
 	<h3>언어를 선택하세요</h3>

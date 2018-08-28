@@ -23,7 +23,7 @@
 		out.println(cookie.getName()+":"+msg+"<br/>");
 	}
 	}
-
+ 
 %>
 </body>
 </html>

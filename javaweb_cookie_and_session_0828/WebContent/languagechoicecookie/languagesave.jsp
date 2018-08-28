@@ -17,4 +17,4 @@ response.addCookie(cookie);
 response.sendRedirect("languagechoice.jsp");
 %>
 </body>
-</html>
+</html> 

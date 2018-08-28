@@ -29,4 +29,4 @@ document.getElementById("mainbtn").addEventListener("click", function(){
 	location.href = 'main.jsp'
 })
 </script>
-</html>
+</html> 
