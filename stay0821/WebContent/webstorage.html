@@ -18,7 +18,7 @@ var ids = document.getElementById("id")
 //윈도우가 로드를 끝냈을 때
 window.addEventListener("load",function(e){
 	var event = e || window.event
-	alert(typeof localStorage.id)
+//	alert(typeof localStorage.id)
 	if(typeof localStorage.id != 'undefined'){
 		ids.value = localStorage.id
 		idsave.checked = true;
