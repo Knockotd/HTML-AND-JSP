@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<!-- 사용자의 입력을 받아서 서버에게 전송하기 위한 개체가 form 입니다. -->
+	<!-- 속성 action은 처리할 서버의 url인데 생략하면 현재 url이 됩니다. -->
+	<!-- method는 요청 방식입니다. 보통은 get, post 둘 중 하나 입니다.(나중에 1개 더 추가 예정) -->
+	<form action="personcreate" method="post">
+		<table align="center" , cellpadding="5">
+			<tr>
+				<th colspan="2" width="50">회원가입</th>
+			</tr>
+			<tr>
+				<td align="right"><label for="email">이메일</label></td>
+				<td><input type="email" id="email" name="email" /></td>
+			</tr>
+
+			<tr>
+				<td align="right"><label for="pw">비밀번호</label></td>
+				<td><input type="password" id="pw" name="pw" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2">
+					<fieldset>
+						<legend>성별</legend>
+						<input type="radio" value="남자" name="gender" />남자 <input
+							type="radio" value="여자" name="gender" />여자
+					</fieldset>
+			</tr>
+
+			<tr>
+				<td align="right"><label for="name">이름</label></td>
+				<td><input type="text" id="name" name="name" /></td>
+			</tr>
+
+			<tr>
+				<td align="right"><label for="nickname">닉네임</label></td>
+				<td><input type="text" id="nickname" name="nickname" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2">
+					<fieldset>
+						<legend>취미</legend>
+						<input type="checkbox" name="hobby" checked="checked" value="독서"/>독서 <input type="checkbox"
+							name="hobby" value="자수"/>자수 <input type="checkbox" name="hobby" value="게임"/>게임 <input
+							type="checkbox" name="hobby" value="방송프로보기"/>방송프로보기 <input type="checkbox"
+							name="hobby" value="여행"/>여행 <input type="checkbox" name="hobby" value="맛집찾기"/>맛집찾기
+					</fieldset>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center"><input type="submit"
+					value="회원가입" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
